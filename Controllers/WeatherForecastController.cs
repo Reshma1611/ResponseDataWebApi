@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ResponseDataWebAPI;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 using System.Text.RegularExpressions;
 
@@ -39,26 +40,29 @@ namespace ResponseDataWebAPI.Controllers
         {
             TblUserRegistrationDTO tblUserRegistrationDTO = new TblUserRegistrationDTO();
             return OkResult(tblUserRegistrationDTO);
-            return OkResult(1, "Deleted successfully");
-            return OkResult(1, "Successful login.", new { });
-
-
-
+            //return OkResult(1, "Deleted successfully");
+            //return OkResult(1, "Successful login.", new { });
         }
 
         [HttpPost("EmailValidation")]
+        [Consumes("application/json")]
+        [SwaggerOperation("Logs in user.")]
+        [SwaggerResponse(statusCode: StatusCodes.Status200OK, type: typeof(string), description: "status 0: Valid Email.<br/> status 1: Invalid email.") ]
+        [SwaggerResponse(statusCode: StatusCodes.Status400BadRequest, type: typeof(ResponseData), description: "Request data is not provided properly or missing required information.")]
+
         public async Task<IActionResult> EmailValidation(string str)
         {
             if (str.Length < 5)
             {
-                return OtherResult(HttpStatusCode.BadRequest, 2, "Please provide length of string which is greater then 5");
+                return OtherResult(HttpStatusCode.BadRequest, 1, "Please provide length of string which is greater then 5");
             }
             Regex regex = new Regex(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$");
             if (!regex.IsMatch(str))
             {
-                return OtherResult(HttpStatusCode.BadRequest, 0, "Invalid Email");
+                return OtherResult(HttpStatusCode.BadRequest, 1, "Invalid Email");
             }
-            return OkResult("Email is valid");
+            return OkResult(0, "Email is valid");
+            //return OkResult("Email is valid");
         }
 
         [HttpPost("Enter0To5")]

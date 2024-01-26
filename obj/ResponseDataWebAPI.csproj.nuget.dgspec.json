@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Narola\\RESHMA\\Microservice\\Microservice\\Demo\\ResponseDataWebAPI\\ResponseDataWebAPI.csproj": {}
+    "E:\\Uploaded on GitHub\\ResponseDataWebAPI - Copy\\ResponseDataWebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Narola\\RESHMA\\Microservice\\Microservice\\Demo\\ResponseDataWebAPI\\ResponseDataWebAPI.csproj": {
+    "E:\\Uploaded on GitHub\\ResponseDataWebAPI - Copy\\ResponseDataWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Narola\\RESHMA\\Microservice\\Microservice\\Demo\\ResponseDataWebAPI\\ResponseDataWebAPI.csproj",
+        "projectUniqueName": "E:\\Uploaded on GitHub\\ResponseDataWebAPI - Copy\\ResponseDataWebAPI.csproj",
         "projectName": "ResponseDataWebAPI",
-        "projectPath": "D:\\Narola\\RESHMA\\Microservice\\Microservice\\Demo\\ResponseDataWebAPI\\ResponseDataWebAPI.csproj",
+        "projectPath": "E:\\Uploaded on GitHub\\ResponseDataWebAPI - Copy\\ResponseDataWebAPI.csproj",
         "packagesPath": "C:\\Users\\RESHMA-LAPPY\\.nuget\\packages\\",
-        "outputPath": "D:\\Narola\\RESHMA\\Microservice\\Microservice\\Demo\\ResponseDataWebAPI\\obj\\",
+        "outputPath": "E:\\Uploaded on GitHub\\ResponseDataWebAPI - Copy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\RESHMA-LAPPY\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,6 +63,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

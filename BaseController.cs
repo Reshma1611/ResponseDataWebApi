@@ -6,7 +6,7 @@ using System.Net;
 
 namespace ResponseDataWebAPI
 {
-    [InvalidModelStateHandler]
+    //[InvalidModelStateHandler]
     public class BaseController : Controller
     {
         
@@ -150,34 +150,34 @@ namespace ResponseDataWebAPI
         #endregion
     }
 
-    public class InvalidModelStateHandlerAttribute : ActionFilterAttribute
-    {
-        public const string CONTENT_TYPE_APPLICATION_JSON = "application/json";
-        public const string CONTENT_TYPE_MULTIPART_FORMDATA = "multipart/form-data";
-        public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            if (!context.ModelState.IsValid)
-            {
-                var data = context.ModelState.Where(x => x.Value?.Errors.Count > 0)
-                    .Select(x => new FieldError(
-                        x.Key,
-                        x.Value?.Errors?.Select(x => x.ErrorMessage).ToArray() ?? new string[] { "" }
-                        ))
-                    .ToArray();
-                var resData = new ResponseData<FieldError[]>()
-                {
-                    Data = data
-                };
-                context.Result = new JsonResult(resData)
-                {
-                    StatusCode = (int)HttpStatusCode.BadRequest,
-                    ContentType = CONTENT_TYPE_APPLICATION_JSON,
-                };
-            }
+    //public class InvalidModelStateHandlerAttribute : ActionFilterAttribute
+    //{
+    //    public const string CONTENT_TYPE_APPLICATION_JSON = "application/json";
+    //    public const string CONTENT_TYPE_MULTIPART_FORMDATA = "multipart/form-data";
+    //    public override void OnActionExecuting(ActionExecutingContext context)
+    //    {
+    //        if (!context.ModelState.IsValid)
+    //        {
+    //            var data = context.ModelState.Where(x => x.Value?.Errors.Count > 0)
+    //                .Select(x => new FieldError(
+    //                    x.Key,
+    //                    x.Value?.Errors?.Select(x => x.ErrorMessage).ToArray() ?? new string[] { "" }
+    //                    ))
+    //                .ToArray();
+    //            var resData = new ResponseData<FieldError[]>()
+    //            {
+    //                Data = data
+    //            };
+    //            context.Result = new JsonResult(resData)
+    //            {
+    //                StatusCode = (int)HttpStatusCode.BadRequest,
+    //                ContentType = CONTENT_TYPE_APPLICATION_JSON,
+    //            };
+    //        }
 
-            base.OnActionExecuting(context);
-        }
-    }
+    //        base.OnActionExecuting(context);
+    //    }
+    //}
     
     public class FieldError
     {
