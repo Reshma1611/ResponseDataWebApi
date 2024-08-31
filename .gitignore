@@ -1,0 +1,32 @@
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+.vs/
+
+*.user
+*.suo
+*.userosscache
+*.suo
+*.ntvs_analysis.dat
+*.ncb
+*.dbmdl
+*.opendb
+*.vscode/
+*.tmp
+*.log
+
+# Rider
+.idea/
+
+# ASP.NET Core
+
+appsettings*.xml
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.Production.json
+
+# Dotnet Publish
+publish/
