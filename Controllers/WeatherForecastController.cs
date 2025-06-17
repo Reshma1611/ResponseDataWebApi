@@ -78,7 +78,7 @@ namespace ResponseDataWebAPI.Controllers
         [HttpGet("GetByName")]
         public async Task<IActionResult> GetByNameStartWith(string nameStartWith)
         {
-            //
+            
             var data = Summaries.Where(x => x.StartsWith(nameStartWith)).Select(x => x).ToList();
             string p = null;
             if (data.Count != 0)
@@ -86,7 +86,7 @@ namespace ResponseDataWebAPI.Controllers
                 return OkResult(new { id = 1, Name = "REshma", p = p });
             }
             return OtherResult(HttpStatusCode.BadRequest, $"Data that starts with {nameStartWith} not found");
-            //master
+            
         }
     }
 
