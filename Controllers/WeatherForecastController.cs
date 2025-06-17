@@ -78,6 +78,7 @@ namespace ResponseDataWebAPI.Controllers
         [HttpGet("GetByName")]
         public async Task<IActionResult> GetByNameStartWith(string nameStartWith)
         {
+            //
             var data = Summaries.Where(x => x.StartsWith(nameStartWith)).Select(x => x).ToList();
             string p = null;
             if (data.Count != 0)
